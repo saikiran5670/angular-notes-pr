@@ -1,0 +1,37 @@
+.note {
+    background-color: rgb(255, 240, 70);
+    position: relative;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); 
+    margin-bottom: 1em;
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+
+.close {
+    top: 5px;
+    cursor:pointer;
+    color: black;
+    position: relative;
+}
+
+.content {
+    padding: 5px;
+    outline: none;
+    height: 60px;
+    border-radius: 8px;
+    overflow-y: auto;
+    color: black;
+}
+
+.footer{
+  text-align: left;
+  color:black;
+}
+button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: x-large;
+    outline: none;
+}

@@ -1,0 +1,42 @@
+
+  /* .app {
+    overflow: auto;
+    margin-bottom: 50px;
+  } */
+  .toolbar {
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height:55px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    /* background-color: rgb(228, 214, 135); */
+    /* border: 10px solid gray; */ 
+    border-bottom: 0;
+    color: black;
+    font-size: -webkit-xxx-large;
+    font-weight: bold;
+    
+}
+
+button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    font-size: xx-large;
+    outline: none;
+    float: right;
+    margin-top:-670px;
+   margin-right: 50px;
+;
+
+}
+.record {
+  float: right;
+}
+
+.add {
+  /* float: left */
+}
