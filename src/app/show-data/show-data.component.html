@@ -5,9 +5,9 @@
 			<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; search the notes that you have created">
     </div>
 		<div class="notesList">		
-			<div *ngFor="let note of notes | filter:searchText" class="card" [ngStyle]="{'background-color': 'aliceblue'}">
+			<div *ngFor="let note of notes | filter:searchText" class="card" [ngStyle]="{'background-color': 'red'}">
 				<div class="card-body">
-					<div class="h4 card-title">{{note.id}}</div>
+					<div class="h1 card-title">{{note.title}}</div>
 					<p class="card-text">{{note.content}}</p>
 				</div>
 			</div>

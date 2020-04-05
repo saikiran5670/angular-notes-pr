@@ -7,30 +7,13 @@ import { Component, OnInit, ElementRef, ChangeDetectionStrategy } from '@angular
 })
 export class ShowDataComponent implements OnInit {
 searchText;
-//   heroes = [
-//     { id: 11, name: 'Mr. Nice', country: 'India' },
-//     { id: 12, name: 'Narco' , country: 'USA'},
-//     { id: 13, name: 'Bombasto' , country: 'UK'},
-//     { id: 14, name: 'Celeritas' , country: 'Canada' },
-//     { id: 15, name: 'Magneta' , country: 'Russia'},
-//     { id: 16, name: 'RubberMan' , country: 'China'},
-//     { id: 17, name: 'Dynama' , country: 'Germany'},
-//     { id: 18, name: 'Dr IQ' , country: 'Hong Kong'},
-//     { id: 19, name: 'Magma' , country: 'South Africa'},
-//     { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
-//   ];
-//   constructor() { }
 
-//   ngOnInit() {
-//   }
-
-// }
   dateVal  =new Date();
 
 notes = [];
   recognition:any;
   constructor(private el:ElementRef) {
-    this.notes = JSON.parse(localStorage.getItem('notes')) || [{ id: 0,content:'' }];
+    this.notes = JSON.parse(localStorage.getItem('notes')) || [{ title: 0,content:'' }];
 
     const {webkitSpeechRecognition} : IWindow = <IWindow>window;
     this.recognition = new webkitSpeechRecognition();
@@ -44,9 +27,9 @@ notes = [];
     console.log(document.querySelectorAll('app-note'));
     let notes = document.querySelectorAll('app-notes');
 
-    notes.forEach((note, index)=>{
-         console.log(note.querySelector('.content').innerHTML)
-         this.notes[note.id].content = note.querySelector('.content').innerHTML;
+    notes.forEach((note, title)=>{
+         console.log(note.querySelector('.content1').innerHTML)
+         this.notes[note.title].content1 = note.querySelector('.content1').innerHTML;
     });
 
     localStorage.setItem('notes', JSON.stringify(this.notes));
@@ -54,18 +37,19 @@ notes = [];
   }
 
   addNote () {
-    this.notes.push({ id: this.dateVal,content:'' });
+    this.notes.push({ title:'',content:'' });
     // sort the array
-    this.notes= this.notes.sort((a,b)=>{ return b.id-a.id});
+    this.notes= this.notes.sort((a,b)=>{ return b.title-a.title});
     localStorage.setItem('notes', JSON.stringify(this.notes));
   };
   
   saveNote(event){
-    const id = event.srcElement.parentElement.parentElement.getAttribute('id');
+    const title =  event.target.innerText;
+    event.target.innerText = content1;
     const content = event.target.innerText;
     event.target.innerText = content;
     const json = {
-      'id':id,  
+      'title':title,  
       'content':content
     }
     this.updateNote(json);
@@ -75,16 +59,18 @@ notes = [];
   
   updateNote(newValue){
     this.notes.forEach((note, index)=>{
-      if(note.id== newValue.id) {
+      if(note.title== newValue.title) {
         this.notes[index].content = newValue.content;
+                this.notes[index].content1 = newValue.content1;
+
       }
     });
   }
   
   deleteNote(event){
-     const id = event.srcElement.parentElement.parentElement.parentElement.getAttribute('id');
+     const title = event.srcElement.parentElement.parentElement.parentElement.getAttribute('title');
      this.notes.forEach((note, index)=>{
-      if(note.id== id) {
+      if(note.title== title) {
         this.notes.splice(index,1);
         localStorage.setItem('notes', JSON.stringify(this.notes));
         console.log("********* deleting note *********")

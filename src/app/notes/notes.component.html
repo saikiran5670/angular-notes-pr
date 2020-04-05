@@ -1,8 +1,9 @@
   <!-- <input type="text" class="search"> -->
 
 <div class="note">
-  	<div class="content" contenteditable="true">
-<p>Title</p>	</div>
+  	<div class="content1" contenteditable="true" (blur)="onFocusOut($event)">
+      	<h4> 	<ng-content></ng-content> </h4>
+  	</div>
   <div class="note_toolbar">
 	  <span class="close material-icons" (click)="onDismiss($event)">close</span>
   </div>
@@ -15,4 +16,3 @@
 
   </div>
 </div>
-
