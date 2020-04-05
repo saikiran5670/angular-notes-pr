@@ -1,3 +1,4 @@
+<div class="data">
 <div class="app">
 	<app-notes *ngFor="let note of notes" (dismiss)="deleteNote($event)" (focusout)="saveNote($event)" id="{{note.id}}">{{note.content}}</app-notes>
 </div>
@@ -12,4 +13,5 @@
   <!-- <button class="record material-icons" (click)="record($event)">
     settings_voice
   </button> -->
+</div>
 </div>
