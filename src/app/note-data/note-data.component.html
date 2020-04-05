@@ -1,0 +1,9 @@
+<div class="notesData">		
+			<div *ngFor="let note of notes;let i=index" class="card" [ngStyle]="{'background-color': n.noteColor === '' ? '#D9D9D9' : n.noteColor}">
+				<a href="#" class="card-body">
+					<div class="h4 card-title">{{note.title}}</div>
+					<p class="card-text">{{note.content}}</p>
+				</a>
+			</div>
+		</div>
+    
